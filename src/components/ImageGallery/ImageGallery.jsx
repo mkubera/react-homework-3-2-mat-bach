@@ -1,4 +1,6 @@
 import styles from './ImageGallery.module.css';
 
-const Gallery = <ul className={styles.ImageGallery}></ul>;
+const Gallery = ({ children }) => (
+  <ul className={styles.ImageGallery}>{children}</ul>
+);
 export default Gallery;

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import Searchbar from './Searchbar/Searchbar';
 import ImageGalleryItem from './ImageGalleryItem/ImageGalleryItem';
 import Gallery from './ImageGallery/ImageGallery';
@@ -10,18 +9,15 @@ import fetchImage from './Services/fetchImage';
 
 export class App extends React.Component {
   state = { query: '', page: 1, image: [], helpState: 'whatever' };
-  // componentDidMount() {
-  //   this.renderGallery();
-  // }
+  componentDidMount() {
+    this.renderGallery();
+  }
   async componentDidUpdate() {
     this.renderGallery();
   }
   async renderGallery() {
     const response = await fetchImage(this.state.query, this.state.page);
     if (this.state.helpState === 'whatever') {
-      if (this.state.image.length < 1) {
-        Notify.failure('No results');
-      }
       if (this.state.page === 1) {
         this.setState({ image: response.hits });
       }
