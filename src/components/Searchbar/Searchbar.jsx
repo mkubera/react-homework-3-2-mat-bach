@@ -1,19 +1,27 @@
 import React from 'react';
+import styles from './Searchbar.module.css';
+import { ImSearch } from 'react-icons/im';
 
-const Searchbar = ({ onSubmit }) => (
-  <header class="searchbar">
-    <form class="form">
-      <button type="submit" class="button">
-        <span class="button-label">Search</span>
-      </button>
-
-      <input
-        class="input"
-        type="text"
-        autocomplete="off"
-        autofocus
-        placeholder="Search images and photos"
-      />
-    </form>
-  </header>
-);
+export class Searchbar extends React.Component {
+  render() {
+    const { submitForm } = this.props;
+    return (
+      <header className={styles.Searchbar}>
+        <form className={styles.SearchForm} onSubmit={submitForm}>
+          <button className={styles.button} type="submit" name="submitBtn">
+            <ImSearch />
+          </button>
+          <input
+            className={styles.input}
+            name="query"
+            type="text"
+            autocomplete="off"
+            autofocus
+            placeholder="Search images and photos"
+          />
+        </form>
+      </header>
+    );
+  }
+}
+export default Searchbar;
