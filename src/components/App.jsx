@@ -11,6 +11,11 @@ export class App extends React.Component {
   state = { query: '', page: 1, image: [], helpState: 'whatever' };
   componentDidMount() {
     this.renderGallery();
+    
+    fetch("https://pixabay.com/api/?key=28406091-8008b7c1afae3beb3d4e940a7&q=&image_type=photo&orientation=horizontal&safesearch=true&page=1&per_page=12")
+.then(r => r.json())
+.then(console.log)
+.catch(console.log)
   }
   async componentDidUpdate() {
     this.renderGallery();
