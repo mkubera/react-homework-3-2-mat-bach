@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 
 const fetchImage = async (query, page) => {
 //  const baseUrl = 'https://pixabay.com/api';
